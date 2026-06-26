@@ -1,116 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huzzler Terms of Service</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huzzler — Terms of Service</title>
+<style>
+  :root{
+    --purple-800:#5b3df0;
+    --purple-700:#6c4cf5;
+    --purple-100:#efeafd;
+    --purple-50:#f6f3fe;
+    --ink-900:#1c1530;
+    --ink-700:#3a3450;
+    --ink-500:#6b6580;
+    --ink-300:#9c97ad;
+    --line:#e8e4f5;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink-900);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Header ---------- */
+  .topbar{
+    background:linear-gradient(120deg,#a98cf7 0%,#8f6cf2 55%,#7c58ee 100%);
+    padding:22px 40px 60px;
+    position:relative;
+  }
+  .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:8px;
+    background:#f6d83b;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#1c1530;font-size:18px;
+    transform:rotate(-2deg);
+  }
+  .brand-name{font-size:19px;font-weight:700;color:#fff;letter-spacing:.2px;}
+  nav.toplinks{display:flex;gap:34px;}
+  nav.toplinks a{
+    color:rgba(255,255,255,.85);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    padding-bottom:8px;
+    border-bottom:2px solid transparent;
+  }
+  nav.toplinks a.active{
+    color:#fff;
+    border-bottom-color:#f6d83b;
+    font-weight:600;
+  }
+
+  /* ---------- Page shell ---------- */
+  .shell{
+    max-width:1180px;
+    margin:-38px auto 0;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 20px 50px -25px rgba(60,40,140,.25);
+    display:flex;
+    gap:48px;
+    padding:44px 44px 0 44px;
+    position:relative;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width:230px;
+    flex-shrink:0;
+    position:sticky;
+    top:24px;
+    align-self:flex-start;
+    padding-bottom:32px;
+  }
+  .sidebar h4{
+    color:var(--purple-700);
+    font-size:13px;
+    text-transform:none;
+    margin:0 0 14px;
+    font-weight:700;
+  }
+  .toc{list-style:none;margin:0 0 22px;padding:0;}
+  .toc li{margin-bottom:13px;}
+  .toc a{
+    color:var(--ink-500);
+    text-decoration:none;
+    font-size:13.5px;
+    display:block;
+    line-height:1.4;
+    transition:color .15s;
+  }
+  .toc a:hover{color:var(--purple-700);}
+  .toc a.active{color:var(--purple-700);font-weight:700;}
+  .toc-num{display:inline-block;width:18px;color:inherit;}
+
+  .help-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:12px;
+    padding:16px;
+  }
+  .help-card .q-icon{
+    width:22px;height:22px;border-radius:50%;
+    border:1.6px solid var(--purple-700);
+    color:var(--purple-700);
+    font-size:12px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:8px;
+  }
+  .help-card strong{display:block;font-size:13.5px;color:var(--ink-900);margin-bottom:4px;}
+  .help-card p{font-size:13px;color:var(--ink-500);margin:0 0 10px;}
+  .help-card a{color:var(--purple-700);font-weight:600;font-size:13px;text-decoration:none;}
+
+  /* ---------- Main content ---------- */
+  main{flex:1;min-width:0;padding-bottom:8px;}
+  .page-title{font-size:42px;font-weight:800;letter-spacing:-.5px;margin:4px 0 14px;color:var(--ink-900);}
+  .updated{
+    display:flex;align-items:center;gap:8px;
+    color:var(--ink-500);font-size:14px;margin-bottom:28px;
+  }
+
+  .overview-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:14px;
+    padding:26px 28px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    margin-bottom:42px;
+  }
+  .overview-icon{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--purple-700);
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .overview-icon svg{width:24px;height:24px;}
+  .overview-card h3{margin:2px 0 8px;font-size:17px;color:var(--ink-900);}
+  .overview-card p{margin:0;font-size:14.5px;line-height:1.65;color:var(--ink-700);}
+
+  section.tos-section{margin-bottom:48px;scroll-margin-top:20px;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .sec-num{
+    width:30px;height:30px;border-radius:8px;
+    background:var(--purple-700);
+    color:#fff;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .sec-head h2{font-size:22px;margin:0;color:var(--ink-900);font-weight:800;}
+
+  .sub-head{
+    font-size:14.5px;font-weight:700;color:var(--purple-700);
+    margin:18px 0 8px 44px;
+  }
+
+  .item-list{margin:0 0 0 44px;padding:0;}
+  .item{
+    display:flex;gap:10px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--ink-700);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .tag{color:var(--ink-300);font-weight:600;flex-shrink:0;width:18px;}
+  .item b{color:var(--ink-900);}
+
+  .note-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:14px;
+    padding:20px 22px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    margin:44px 0 0;
+  }
+  .note-card .shield{flex-shrink:0;margin-top:2px;}
+  .note-card strong{display:block;font-size:14.5px;color:var(--purple-700);margin-bottom:4px;}
+  .note-card p{margin:0;font-size:13.5px;color:var(--ink-700);line-height:1.6;}
+
+  /* ---------- Bottom action bar ---------- */
+  .actionbar{
+    max-width:1180px;
+    margin:0 auto 40px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 14px 36px -22px rgba(60,40,140,.2);
+  }
+  .actionbar p{margin:0;font-size:14px;color:var(--ink-700);}
+  .actionbar .btns{display:flex;gap:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:600;
+    padding:10px 18px;
+    border-radius:9px;
+    cursor:pointer;
+    text-decoration:none;
+    border:1px solid var(--line);
+  }
+  .btn.ghost{background:#fff;color:var(--ink-900);}
+  .btn.primary{background:var(--purple-700);color:#fff;border-color:var(--purple-700);}
+
+  @media (max-width:880px){
+    .shell{flex-direction:column;padding:28px 20px 0;margin-top:-24px;}
+    .sidebar{position:static;width:100%;}
+    .topbar{padding:18px 20px 70px;}
+    nav.toplinks{gap:18px;}
+    .page-title{font-size:32px;}
+    .item-list,.sub-head{margin-left:0;}
+    .actionbar{flex-direction:column;gap:14px;align-items:flex-start;margin:0 16px 30px;}
+  }
+</style>
 </head>
 <body>
 
-<h1>Huzzler – Terms of Service</h1>
-<p><strong>Last Updated:</strong> February 28, 2026</p>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">h.</div>
+      <div class="brand-name">Huzzler</div>
+    </div>
+    <nav class="toplinks">
+      <a href="terms.html" class="active">Terms</a>
+      <a href="index.html">Privacy</a>
+      <a href="#">DEI</a>
+    </nav>
+  </div>
+</header>
 
-<h2>1. Eligibility</h2>
-<ul>
-    <li>Users must be <strong>13+ years old</strong>. Under  18 must use a parent/guardian account.</li>
-    <li>Provide accurate registration information and protect login credentials.</li>
-    <li>All activity under your account is your responsibility.</li>
-</ul>
+<div class="shell">
 
-<h2>2. User Roles</h2>
-<h3>Freelancers</h3>
-<ul>
-    <li>Work independently; Huzzler does not employ or supervise you.</li>
-    <li>Deliverables (“Work Product”) belong to you until payment is completed.</li>
-    <li>Comply with IP laws, ethics, and applicable Indian laws.</li>
-</ul>
-<h3>Clients</h3>
-<ul>
-    <li>Post clear and truthful project details.</li>
-    <li>Pay Freelancers directly; Huzzler does not handle payments.</li>
-    <li>Respect Freelancer IP and confidential information.</li>
-</ul>
-<h3>All Users</h3>
-<ul>
-    <li>Follow applicable laws, IT Rules 2021, DPDP Act 2023.</li>
-    <li>Do not post illegal, offensive, harmful, or infringing content.</li>
-</ul>
+  <aside class="sidebar">
+    <h4>On this page</h4>
+    <ul class="toc">
+      <li><a href="#s1" class="active"><span class="toc-num">1.</span>Eligibility</a></li>
+      <li><a href="#s2"><span class="toc-num">2.</span>User Roles</a></li>
+      <li><a href="#s3"><span class="toc-num">3.</span>Platform Nature</a></li>
+      <li><a href="#s4"><span class="toc-num">4.</span>Payments &amp; Transactions</a></li>
+      <li><a href="#s5"><span class="toc-num">5.</span>Intellectual Property</a></li>
+      <li><a href="#s6"><span class="toc-num">6.</span>Prohibited Activities</a></li>
+      <li><a href="#s7"><span class="toc-num">7.</span>Content Responsibility</a></li>
+      <li><a href="#s8"><span class="toc-num">8.</span>Limitation of Liability</a></li>
+      <li><a href="#s9"><span class="toc-num">9.</span>Termination</a></li>
+      <li><a href="#s10"><span class="toc-num">10.</span>Privacy &amp; Data</a></li>
+      <li><a href="#s11"><span class="toc-num">11.</span>Dispute Resolution</a></li>
+      <li><a href="#s12"><span class="toc-num">12.</span>Grievance / IP Complaints</a></li>
+      <li><a href="#s13"><span class="toc-num">13.</span>Updates</a></li>
+    </ul>
 
-<h2>3. Platform Nature</h2>
-<ul>
-    <li>Huzzler is an online intermediary connecting Freelancers and Clients.</li>
-    <li>We do not guarantee work quality, payment, or outcomes.</li>
-    <li>All IP rights and contractual obligations are between the Freelancer and Client.</li>
-</ul>
+    <div class="help-card">
+      <div class="q-icon">?</div>
+      <strong>Questions?</strong>
+      <p>We're here to help.</p>
+      <a href="mailto:grievance@huzzler.io">Contact Support ↗</a>
+    </div>
+  </aside>
 
-<h2>4. Payments & Transactions</h2>
-<ul>
-    <li>All payments and contracts occur outside the Platform.</li>
-    <li>Users are responsible for taxes, GST, TDS, invoices, and refunds.</li>
-    <li>Huzzler is not a payment processor or guarantor.</li>
-</ul>
+  <main>
+    <h1 class="page-title">Terms of Service</h1>
+    <div class="updated">📅 Last Updated: February 28, 2026</div>
 
-<h2>5. Intellectual Property</h2>
-<ul>
-    <li>Users retain ownership of uploaded content (profiles, images, portfolios).</li>
-    <li>Uploading content grants Huzzler a non-exclusive, royalty-free license to host and display it.</li>
-    <li>Freelancer Work Product rights transfer to Client after full payment, unless otherwise agreed.</li>
-    <li>Do not upload third-party content without permission.</li>
-</ul>
+    <div class="overview-card">
+      <div class="overview-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Z" stroke="#fff" stroke-width="1.6"/>
+          <path d="M15 2v5h5" stroke="#fff" stroke-width="1.6"/>
+          <path d="M8 12h8M8 16h8M8 8h3" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Overview</h3>
+        <p>These Terms of Service ("Terms") govern your access to and use of Huzzler, a platform that connects Freelancers and Clients for independent work. By creating an account or using the Platform, you agree to be bound by these Terms.</p>
+      </div>
+    </div>
 
-<h2>6. Prohibited Activities</h2>
-<ul>
-    <li>No illegal, offensive, pornographic, violent, or infringing content.</li>
-    <li>No misrepresentation or impersonation.</li>
-    <li>No spamming, soliciting free work, bypassing Platform fees, or fraud.</li>
-    <li>No interference with Platform systems or scraping data.</li>
-</ul>
+    <!-- 1. Eligibility -->
+    <section class="tos-section" id="s1">
+      <div class="sec-head"><div class="sec-num">1</div><h2>Eligibility</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span><b>Age requirement:</b> Users must be 13+ years old. Users under 18 must use a parent/guardian account.</span></li>
+        <li class="item"><span class="tag">b)</span><span><b>Accurate information:</b> Provide accurate registration information and protect your login credentials.</span></li>
+        <li class="item"><span class="tag">c)</span><span><b>Account responsibility:</b> All activity under your account is your responsibility.</span></li>
+      </ul>
+    </section>
 
-<h2>7. Content Responsibility</h2>
-<ul>
-    <li>Users are fully responsible for all content they post.</li>
-    <li>Huzzler does not endorse or verify user content.</li>
-    <li>Unlawful content will be removed upon valid notice as per IT Rules, 2021.</li>
-</ul>
+    <!-- 2. User Roles -->
+    <section class="tos-section" id="s2">
+      <div class="sec-head"><div class="sec-num">2</div><h2>User Roles</h2></div>
 
-<h2>8. Limitation of Liability</h2>
-<ul>
-    <li>Huzzler is not liable for disputes, unpaid fees, IP claims, or damages.</li>
-    <li>Maximum liability is INR 1,000 or fees paid in the last 3 months, whichever is lower.</li>
-    <li>Users indemnify Huzzler for claims arising from their activity.</li>
-</ul>
+      <div class="sub-head">Freelancers</div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Work independently; Huzzler does not employ or supervise you.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Deliverables ("Work Product") belong to you until payment is completed.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Comply with IP laws, ethics, and applicable Indian laws.</span></li>
+      </ul>
 
-<h2>9. Termination</h2>
-<ul>
-    <li>Accounts may be suspended/terminated for ToS violations or illegal activity.</li>
-    <li>Users can deactivate their account anytime.</li>
-    <li>Termination does not affect obligations between Freelancers and Clients.</li>
-</ul>
+      <div class="sub-head">Clients</div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Post clear and truthful project details.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Pay Freelancers directly; Huzzler does not handle payments.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Respect Freelancer IP and confidential information.</span></li>
+      </ul>
 
-<h2>10. Privacy & Data</h2>
-<ul>
-    <li>Personal data is handled according to our <a href="index.html" target="_blank">Privacy Policy</a>.</li>
-    <li>Users consent to lawful collection, storage, and processing for operations and compliance.</li>
-    <li>Users may access, update, or delete their data.</li>
-</ul>
+      <div class="sub-head">All Users</div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Follow applicable laws, IT Rules 2021, and the DPDP Act 2023.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Do not post illegal, offensive, harmful, or infringing content.</span></li>
+      </ul>
+    </section>
 
-<h2>11. Dispute Resolution</h2>
-<ul>
-    <li>Resolve disputes amicably first.</li>
-    <li>If unresolved, mediation under the Mediation Act, 2023 in Chennai, Tamil Nadu.</li>
-    <li>Remaining disputes go to arbitration under Arbitration & Conciliation Act, 1996, seat in Chennai, Tamil Nadu.</li>
-</ul>
+    <!-- 3. Platform Nature -->
+    <section class="tos-section" id="s3">
+      <div class="sec-head"><div class="sec-num">3</div><h2>Platform Nature</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Huzzler is an online intermediary connecting Freelancers and Clients.</span></li>
+        <li class="item"><span class="tag">b)</span><span>We do not guarantee work quality, payment, or outcomes.</span></li>
+        <li class="item"><span class="tag">c)</span><span>All IP rights and contractual obligations are between the Freelancer and Client.</span></li>
+      </ul>
+    </section>
 
-<h2>12. Grievance / IP Complaints</h2>
-<ul>
-    <li>Contact Grievance Officer: VARADHARAJA PERUMAL JANAKIRAMAN</li>
-    <li>Email: <a href="mailto:grievance@huzzler.io">grievance@huzzler.io</a></li>
-    <li>Address: Zuntra Digital Private Limited, Developed Plot Estate, Plot No 61, Perungudi, Kanchipuram, Saidapet, Tamil Nadu, India, 600096</li>
-    <li>Complaints acknowledged within 24 hours, resolved within 15 days.</li>
-</ul>
+    <!-- 4. Payments & Transactions -->
+    <section class="tos-section" id="s4">
+      <div class="sec-head"><div class="sec-num">4</div><h2>Payments &amp; Transactions</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>All payments and contracts occur outside the Platform.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Users are responsible for taxes, GST, TDS, invoices, and refunds.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Huzzler is not a payment processor or guarantor.</span></li>
+      </ul>
+    </section>
 
-<h2>13. Updates</h2>
-<p>We may update these Terms. Continued use indicates acceptance of the updated Terms.</p>
+    <!-- 5. Intellectual Property -->
+    <section class="tos-section" id="s5">
+      <div class="sec-head"><div class="sec-num">5</div><h2>Intellectual Property</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Users retain ownership of uploaded content (profiles, images, portfolios).</span></li>
+        <li class="item"><span class="tag">b)</span><span>Uploading content grants Huzzler a non-exclusive, royalty-free license to host and display it.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Freelancer Work Product rights transfer to the Client after full payment, unless otherwise agreed.</span></li>
+        <li class="item"><span class="tag">d)</span><span>Do not upload third-party content without permission.</span></li>
+      </ul>
+    </section>
+
+    <!-- 6. Prohibited Activities -->
+    <section class="tos-section" id="s6">
+      <div class="sec-head"><div class="sec-num">6</div><h2>Prohibited Activities</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>No illegal, offensive, pornographic, violent, or infringing content.</span></li>
+        <li class="item"><span class="tag">b)</span><span>No misrepresentation or impersonation.</span></li>
+        <li class="item"><span class="tag">c)</span><span>No spamming, soliciting free work, bypassing Platform fees, or fraud.</span></li>
+        <li class="item"><span class="tag">d)</span><span>No interference with Platform systems or scraping data.</span></li>
+      </ul>
+    </section>
+
+    <!-- 7. Content Responsibility -->
+    <section class="tos-section" id="s7">
+      <div class="sec-head"><div class="sec-num">7</div><h2>Content Responsibility</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Users are fully responsible for all content they post.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Huzzler does not endorse or verify user content.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Unlawful content will be removed upon valid notice as per the IT Rules, 2021.</span></li>
+      </ul>
+    </section>
+
+    <!-- 8. Limitation of Liability -->
+    <section class="tos-section" id="s8">
+      <div class="sec-head"><div class="sec-num">8</div><h2>Limitation of Liability</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Huzzler is not liable for disputes, unpaid fees, IP claims, or damages.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Maximum liability is INR 1,000 or fees paid in the last 3 months, whichever is lower.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Users indemnify Huzzler for claims arising from their activity.</span></li>
+      </ul>
+    </section>
+
+    <!-- 9. Termination -->
+    <section class="tos-section" id="s9">
+      <div class="sec-head"><div class="sec-num">9</div><h2>Termination</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Accounts may be suspended or terminated for ToS violations or illegal activity.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Users can deactivate their account at any time.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Termination does not affect obligations between Freelancers and Clients.</span></li>
+      </ul>
+    </section>
+
+    <!-- 10. Privacy & Data -->
+    <section class="tos-section" id="s10">
+      <div class="sec-head"><div class="sec-num">10</div><h2>Privacy &amp; Data</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Personal data is handled according to our Privacy Policy.</span></li>
+        <li class="item"><span class="tag">b)</span><span>Users consent to lawful collection, storage, and processing for operations and compliance.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Users may access, update, or delete their data.</span></li>
+      </ul>
+      <p style="margin:14px 0 0 44px;font-size:14.5px;"><a href="privacy.html" style="color:var(--purple-700);font-weight:600;text-decoration:none;">View Privacy Policy →</a></p>
+    </section>
+
+    <!-- 11. Dispute Resolution -->
+    <section class="tos-section" id="s11">
+      <div class="sec-head"><div class="sec-num">11</div><h2>Dispute Resolution</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>Resolve disputes amicably first.</span></li>
+        <li class="item"><span class="tag">b)</span><span>If unresolved, mediation under the Mediation Act, 2023, in Chennai, Tamil Nadu.</span></li>
+        <li class="item"><span class="tag">c)</span><span>Remaining disputes go to arbitration under the Arbitration &amp; Conciliation Act, 1996, seated in Chennai, Tamil Nadu.</span></li>
+      </ul>
+    </section>
+
+    <!-- 12. Grievance / IP Complaints -->
+    <section class="tos-section" id="s12">
+      <div class="sec-head"><div class="sec-num">12</div><h2>Grievance / IP Complaints</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span><b>Grievance Officer:</b> Varadharaja Perumal Janakiraman</span></li>
+        <li class="item"><span class="tag">b)</span><span><b>Email:</b> grievance@huzzler.io</span></li>
+        <li class="item"><span class="tag">c)</span><span><b>Address:</b> Zuntra Digital Private Limited, Developed Plot Estate, Plot No 61, Perungudi, Kanchipuram, Saidapet, Tamil Nadu, India, 600096</span></li>
+        <li class="item"><span class="tag">d)</span><span>Complaints are acknowledged within 24 hours and resolved within 15 days.</span></li>
+      </ul>
+    </section>
+
+    <!-- 13. Updates -->
+    <section class="tos-section" id="s13">
+      <div class="sec-head"><div class="sec-num">13</div><h2>Updates</h2></div>
+      <ul class="item-list" style="list-style:none;">
+        <li class="item"><span class="tag">a)</span><span>We may update these Terms. Continued use of the Platform indicates acceptance of the updated Terms.</span></li>
+      </ul>
+    </section>
+
+    <div class="note-card">
+      <div class="shield">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z" stroke="#6c4cf5" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <strong>Important</strong>
+        <p>These Terms constitute a legally binding agreement between you and Huzzler. Please read them carefully before using the Platform.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="actionbar">
+  <p>By using Huzzler, you agree to these Terms of Service.</p>
+  <div class="btns">
+    <a href="#" class="btn ghost">⬇ Download PDF</a>
+    <a href="#" class="btn primary">I Agree →</a>
+  </div>
+</div>
+
+<script>
+  // smooth scroll + active state for the TOC
+  const links = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('.tos-section');
+
+  links.forEach(link=>{
+    link.addEventListener('click', e=>{
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  const setActive = ()=>{
+    let current = sections[0];
+    sections.forEach(sec=>{
+      if(sec.getBoundingClientRect().top - 80 <= 0) current = sec;
+    });
+    links.forEach(l=>l.classList.remove('active'));
+    const activeLink = document.querySelector('.toc a[href="#'+current.id+'"]');
+    if(activeLink) activeLink.classList.add('active');
+  };
+  window.addEventListener('scroll', setActive);
+  setActive();
+</script>
 
 </body>
 </html>
