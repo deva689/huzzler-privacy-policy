@@ -1,1 +1,495 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huzzler — Diversity, Equity, Inclusion &amp; Sustainability Policy</title>
+<style>
+  :root{
+    --purple-800:#5b3df0;
+    --purple-700:#6c4cf5;
+    --purple-100:#efeafd;
+    --purple-50:#f6f3fe;
+    --ink-900:#1c1530;
+    --ink-700:#3a3450;
+    --ink-500:#6b6580;
+    --ink-300:#9c97ad;
+    --line:#e8e4f5;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink-900);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Header ---------- */
+  .topbar{
+    background:linear-gradient(120deg,#a98cf7 0%,#8f6cf2 55%,#7c58ee 100%);
+    padding:22px 40px 60px;
+    position:relative;
+  }
+  .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:34px;height:34px;border-radius:8px;
+    background:#f6d83b;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#1c1530;font-size:18px;
+    transform:rotate(-2deg);
+  }
+  .brand-name{font-size:19px;font-weight:700;color:#fff;letter-spacing:.2px;}
+  nav.toplinks{display:flex;gap:34px;}
+  nav.toplinks a{
+    color:rgba(255,255,255,.85);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+    padding-bottom:8px;
+    border-bottom:2px solid transparent;
+  }
+  nav.toplinks a.active{
+    color:#fff;
+    border-bottom-color:#f6d83b;
+    font-weight:600;
+  }
+
+  /* ---------- Page shell ---------- */
+  .shell{
+    max-width:1180px;
+    margin:-38px auto 0;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 20px 50px -25px rgba(60,40,140,.25);
+    display:flex;
+    gap:48px;
+    padding:44px 44px 0 44px;
+    position:relative;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    width:240px;
+    flex-shrink:0;
+    position:sticky;
+    top:24px;
+    align-self:flex-start;
+    padding-bottom:32px;
+    max-height:calc(100vh - 48px);
+    overflow-y:auto;
+  }
+  .sidebar h4{
+    color:var(--purple-700);
+    font-size:13px;
+    margin:0 0 14px;
+    font-weight:700;
+  }
+  .toc{list-style:none;margin:0 0 22px;padding:0;}
+  .toc li{margin-bottom:13px;}
+  .toc a{
+    color:var(--ink-500);
+    text-decoration:none;
+    font-size:13.5px;
+    display:block;
+    line-height:1.4;
+    transition:color .15s;
+  }
+  .toc a:hover{color:var(--purple-700);}
+  .toc a.active{color:var(--purple-700);font-weight:700;}
+  .toc-num{display:inline-block;width:22px;color:inherit;}
+
+  .help-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:12px;
+    padding:16px;
+  }
+  .help-card .q-icon{
+    width:22px;height:22px;border-radius:50%;
+    border:1.6px solid var(--purple-700);
+    color:var(--purple-700);
+    font-size:12px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:8px;
+  }
+  .help-card strong{display:block;font-size:13.5px;color:var(--ink-900);margin-bottom:4px;}
+  .help-card p{font-size:13px;color:var(--ink-500);margin:0 0 10px;}
+  .help-card a{color:var(--purple-700);font-weight:600;font-size:13px;text-decoration:none;}
+
+  /* ---------- Main content ---------- */
+  main{flex:1;min-width:0;padding-bottom:8px;}
+  .page-title{font-size:42px;font-weight:800;letter-spacing:-.5px;margin:4px 0 14px;color:var(--ink-900);}
+  .updated{
+    display:flex;align-items:center;gap:8px;
+    color:var(--ink-500);font-size:14px;margin-bottom:28px;
+  }
+
+  .overview-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:14px;
+    padding:26px 28px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    margin-bottom:42px;
+  }
+  .overview-icon{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--purple-700);
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .overview-icon svg{width:24px;height:24px;}
+  .overview-card h3{margin:2px 0 8px;font-size:17px;color:var(--ink-900);}
+  .overview-card p{margin:0;font-size:14.5px;line-height:1.65;color:var(--ink-700);}
+
+  section.tos-section{margin-bottom:48px;scroll-margin-top:20px;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
+  .sec-num{
+    width:30px;height:30px;border-radius:8px;
+    background:var(--purple-700);
+    color:#fff;font-weight:700;font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .sec-head h2{font-size:22px;margin:0;color:var(--ink-900);font-weight:800;}
+
+  .sub-head{
+    font-size:14.5px;font-weight:700;color:var(--purple-700);
+    margin:20px 0 8px 44px;
+  }
+  .lede{
+    margin:0 0 12px 44px;
+    font-size:14.5px;
+    color:var(--ink-700);
+    line-height:1.65;
+  }
+
+  .item-list{margin:0 0 0 44px;padding:0;list-style:none;}
+  .item{
+    display:flex;gap:10px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--ink-700);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .tag{color:var(--ink-300);font-weight:600;flex-shrink:0;width:22px;}
+  .item b{color:var(--ink-900);}
+
+  .pill-grid{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin:6px 0 0 44px;
+  }
+  .pill{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    color:var(--purple-700);
+    font-size:13px;font-weight:600;
+    padding:8px 14px;
+    border-radius:20px;
+  }
+
+  .note-card{
+    background:var(--purple-50);
+    border:1px solid var(--purple-100);
+    border-radius:14px;
+    padding:20px 22px;
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    margin:14px 0 0 44px;
+    width:calc(100% - 44px);
+  }
+  .note-card.outer{margin:44px 0 0;width:100%;}
+  .note-card .shield{flex-shrink:0;margin-top:2px;}
+  .note-card strong{display:block;font-size:14.5px;color:var(--purple-700);margin-bottom:4px;}
+  .note-card p{margin:0;font-size:13.5px;color:var(--ink-700);line-height:1.6;}
+
+  .link-line{margin:0 0 0 44px;font-size:14.5px;}
+  .link-line a{color:var(--purple-700);font-weight:600;text-decoration:none;}
+
+  /* ---------- Bottom action bar ---------- */
+  .actionbar{
+    max-width:1180px;
+    margin:0 auto 40px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 14px 36px -22px rgba(60,40,140,.2);
+  }
+  .actionbar p{margin:0;font-size:14px;color:var(--ink-700);}
+  .actionbar .btns{display:flex;gap:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:14px;font-weight:600;
+    padding:10px 18px;
+    border-radius:9px;
+    cursor:pointer;
+    text-decoration:none;
+    border:1px solid var(--line);
+  }
+  .btn.ghost{background:#fff;color:var(--ink-900);}
+  .btn.primary{background:var(--purple-700);color:#fff;border-color:var(--purple-700);}
+
+  @media (max-width:880px){
+    .shell{flex-direction:column;padding:28px 20px 0;margin-top:-24px;}
+    .sidebar{position:static;width:100%;max-height:none;}
+    .topbar{padding:18px 20px 70px;}
+    nav.toplinks{gap:18px;}
+    .page-title{font-size:32px;}
+    .item-list,.sub-head,.lede,.link-line,.pill-grid{margin-left:0;}
+    .actionbar{flex-direction:column;gap:14px;align-items:flex-start;margin:0 16px 30px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">h.</div>
+      <div class="brand-name">Huzzler</div>
+    </div>
+    <nav class="toplinks">
+      <a href="terms.html">Terms</a>
+      <a href="index.html">Privacy</a>
+      <a href="dei.html" class="active">DEI</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <h4>On this page</h4>
+    <ul class="toc">
+      <li><a href="#s1" class="active"><span class="toc-num">1.</span>Purpose</a></li>
+      <li><a href="#s2"><span class="toc-num">2.</span>Core Principles</a></li>
+      <li><a href="#s3"><span class="toc-num">3.</span>Zero-Tolerance Policy</a></li>
+      <li><a href="#s4"><span class="toc-num">4.</span>Sustainability Implementation</a></li>
+      <li><a href="#s5"><span class="toc-num">5.</span>Social Sustainability</a></li>
+      <li><a href="#s6"><span class="toc-num">6.</span>Review &amp; Grievance</a></li>
+      <li><a href="#s7"><span class="toc-num">7.</span>Responsibility &amp; Training</a></li>
+      <li><a href="#s8"><span class="toc-num">8.</span>Continuous Improvement</a></li>
+      <li><a href="#s9"><span class="toc-num">9.</span>Legal Alignment</a></li>
+    </ul>
+
+    <div class="help-card">
+      <div class="q-icon">?</div>
+      <strong>Questions?</strong>
+      <p>We're here to help.</p>
+      <a href="mailto:grievance@huzzler.io">Contact Support ↗</a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title">Diversity, Equity, Inclusion &amp; Sustainability Policy</h1>
+    <div class="updated">📅 Last Updated: October 29, 2025</div>
+    <div class="updated" style="margin-top:-22px;">Annexure B · Applies to: All Users (Freelancers &amp; Clients), Employees, and Partners of Huzzler</div>
+
+    <div class="overview-card">
+      <div class="overview-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21c-4.4-2.6-8-6.2-8-11a8 8 0 0 1 16 0c0 4.8-3.6 8.4-8 11Z" stroke="#fff" stroke-width="1.6"/>
+          <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3>Overview</h3>
+        <p>Huzzler is committed to creating a safe, inclusive, and equitable digital workspace for everyone. We also recognise our responsibility to contribute to a sustainable digital and social ecosystem. This DEI &amp; Sustainability Policy establishes our stance against all forms of discrimination and our commitment to respect, fairness, representation, environmental responsibility, ethical digital practices, and long-term societal impact.</p>
+      </div>
+    </div>
+
+    <!-- 1. Purpose -->
+    <section class="tos-section" id="s1">
+      <div class="sec-head"><div class="sec-num">1</div><h2>Purpose</h2></div>
+      <p class="lede">Huzzler is committed to creating a safe, inclusive, and equitable digital workspace for everyone. We also recognise our responsibility to contribute to a sustainable digital and social ecosystem. This DEI &amp; Sustainability Policy establishes our stance against all forms of discrimination and our commitment to respect, fairness, representation, environmental responsibility, ethical digital practices, and long-term societal impact.</p>
+    </section>
+
+    <!-- 2. Core Principles -->
+    <section class="tos-section" id="s2">
+      <div class="sec-head"><div class="sec-num">2</div><h2>Our Core Principles</h2></div>
+
+      <div class="sub-head">Diversity</div>
+      <p class="lede">We celebrate any and all backgrounds, perspectives, and talents of our users and employees. We encourage participation regardless of:</p>
+      <div class="pill-grid">
+        <span class="pill">Gender, gender identity or expression</span>
+        <span class="pill">Sexual orientation</span>
+        <span class="pill">Race, ethnicity, language, or nationality</span>
+        <span class="pill">Religion or belief system</span>
+        <span class="pill">Age, marital status, or socioeconomic background</span>
+        <span class="pill">Physical or cognitive ability</span>
+        <span class="pill">Geographic origin or digital access level</span>
+      </div>
+
+      <div class="sub-head">Equity</div>
+      <p class="lede">We are committed to ensuring fair treatment, access, and opportunity for all users. This includes equitable:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Access to platform features and support.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Visibility in listings and search results (no algorithmic bias).</span></li>
+        <li class="item"><span class="tag">3.</span><span>Dispute handling and resolution without prejudice.</span></li>
+      </ul>
+
+      <div class="sub-head">Inclusion</div>
+      <p class="lede">We strive to ensure that every freelancer, client, and employee feels valued, heard, and safe to express themselves within our community guidelines. Harassment, hate speech, and discriminatory behavior are strictly prohibited.</p>
+
+      <div class="sub-head">Sustainability</div>
+      <p class="lede">We are committed to:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Reducing our digital carbon footprint through efficient hosting, responsible data storage, and low-energy technologies.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Supporting remote, inclusive, and fair work to reduce unnecessary travel and promote flexible employment.</span></li>
+        <li class="item"><span class="tag">3.</span><span>Partnering with vendors and service providers who adhere to ethical, environmental, and labor standards.</span></li>
+        <li class="item"><span class="tag">4.</span><span>Encouraging our freelancers and clients to adopt sustainable work practices, such as paperless contracts, virtual collaboration, and resource optimization.</span></li>
+        <li class="item"><span class="tag">5.</span><span>Continuously evaluating and improving our operational sustainability, including energy efficiency, waste reduction, and responsible consumption.</span></li>
+      </ul>
+    </section>
+
+    <!-- 3. Zero-Tolerance Policy -->
+    <section class="tos-section" id="s3">
+      <div class="sec-head"><div class="sec-num">3</div><h2>Zero-Tolerance Policy on Discrimination &amp; Harassment</h2></div>
+      <p class="lede">We do not tolerate:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Any discriminatory messages, job posts, project descriptions, or conduct on the platform.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Harassment or intimidation based on any protected characteristic.</span></li>
+        <li class="item"><span class="tag">3.</span><span>Exclusionary language or practices in professional engagements.</span></li>
+      </ul>
+      <p class="lede">Any violation of this DEI &amp; Sustainability Policy by a User, Freelancer, Client, Employee, or Partner shall attract appropriate disciplinary or corrective action, which may include warning, temporary suspension, content removal, or permanent termination of access to the Platform, depending on the severity of the violation.</p>
+    </section>
+
+    <!-- 4. Sustainability Implementation -->
+    <section class="tos-section" id="s4">
+      <div class="sec-head"><div class="sec-num">4</div><h2>Sustainability Implementation</h2></div>
+      <p class="lede">To uphold this commitment, Huzzler will:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Host data on energy-efficient servers and seek partnerships with green data centers where feasible.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Use digital-first workflows to eliminate paper waste.</span></li>
+        <li class="item"><span class="tag">3.</span><span>Encourage sustainable project practices, including remote collaboration tools and cloud storage over physical transfers.</span></li>
+        <li class="item"><span class="tag">4.</span><span>Provide educational resources to users on eco-conscious freelancing and sustainable digital behavior.</span></li>
+        <li class="item"><span class="tag">5.</span><span>Regularly monitor and report on sustainability performance indicators.</span></li>
+      </ul>
+    </section>
+
+    <!-- 5. Social Sustainability -->
+    <section class="tos-section" id="s5">
+      <div class="sec-head"><div class="sec-num">5</div><h2>Social Sustainability</h2></div>
+      <p class="lede">Beyond environmental responsibility, we aim to foster a sustainable digital workforce:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Empower freelancers with fair opportunities, regardless of geography or background.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Ensure accessibility and usability for differently-abled users.</span></li>
+        <li class="item"><span class="tag">3.</span><span>Support digital literacy and inclusion in underrepresented communities.</span></li>
+      </ul>
+    </section>
+
+    <!-- 6. Review, Reporting & Grievance Redressal -->
+    <section class="tos-section" id="s6">
+      <div class="sec-head"><div class="sec-num">6</div><h2>Review, Reporting &amp; Grievance Redressal</h2></div>
+      <ul class="item-list">
+        <li class="item"><span class="tag">a)</span><span>With regards to our commitment to sustainability, this Policy will be reviewed annually to ensure alignment with global sustainability goals such as the UN Sustainable Development Goals (SDG 8 – Decent Work and Economic Growth; SDG 12 – Responsible Consumption; SDG 13 – Climate Action).</span></li>
+        <li class="item"><span class="tag">b)</span><span>To ensure that the platform remains a safe and inclusive space, users are encouraged to lodge a report in the event that they experience or witness discrimination. Users can report it via <b>grievance@huzzler.io</b>.</span></li>
+        <li class="item"><span class="tag">c)</span><span>All reports will be handled confidentially by our DEI &amp; Grievance Committee, with a commitment to respond within 72 hours.</span></li>
+        <li class="item"><span class="tag">d)</span><span>The Company strictly prohibits retaliation or victimisation against any person who, in good faith, reports a concern, complaint, or suspected violation under this Policy or participates in an investigation. Any act of retaliation shall itself be treated as a serious violation of this Policy and may attract disciplinary measures, including suspension or termination.</span></li>
+      </ul>
+    </section>
+
+    <!-- 7. Responsibility & Training -->
+    <section class="tos-section" id="s7">
+      <div class="sec-head"><div class="sec-num">7</div><h2>Responsibility &amp; Training</h2></div>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Platform Leadership is responsible for integrating DEI values into product design, algorithms, and partnerships.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Employees and Moderators receive regular sensitivity and anti-bias training.</span></li>
+        <li class="item"><span class="tag">3.</span><span>Users are expected to engage respectfully and uphold our inclusive culture.</span></li>
+        <li class="item"><span class="tag">4.</span><span>All users, partners, and employees share responsibility for upholding our sustainability initiatives and ideals.</span></li>
+        <li class="item"><span class="tag">5.</span><span>Leadership is accountable for ensuring our sustainability values are reflected in decisions, technology, and partnerships.</span></li>
+      </ul>
+    </section>
+
+    <!-- 8. Continuous Improvement -->
+    <section class="tos-section" id="s8">
+      <div class="sec-head"><div class="sec-num">8</div><h2>Continuous Improvement</h2></div>
+      <p class="lede">We will:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Regularly review this policy to reflect evolving social, environmental and legal standards.</span></li>
+        <li class="item"><span class="tag">2.</span><span>Collect anonymised demographic data (with consent) to assess equity outcomes.</span></li>
+      </ul>
+    </section>
+
+    <!-- 9. Legal Alignment -->
+    <section class="tos-section" id="s9">
+      <div class="sec-head"><div class="sec-num">9</div><h2>Legal Alignment</h2></div>
+      <p class="lede">The DEI parts of this Policy comply with:</p>
+      <ul class="item-list">
+        <li class="item"><span class="tag">1.</span><span>Articles 15 and 16 of the Constitution of India (Equality and Non-Discrimination).</span></li>
+        <li class="item"><span class="tag">2.</span><span>The Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021 (safe and respectful online environment).</span></li>
+        <li class="item"><span class="tag">3.</span><span>The Digital Personal Data Protection Act, 2023 (fair and lawful data use without bias).</span></li>
+        <li class="item"><span class="tag">4.</span><span>The POSH Act, 2013, where applicable (prevention of sexual harassment in workplace contexts).</span></li>
+      </ul>
+      <p class="lede">At Huzzler, respect is non-negotiable. We strive to facilitate connection — not division. Together, we hope to foster not only productivity, but responsibility as well.</p>
+      <p class="link-line"><a href="terms.html">View Terms &amp; Conditions →</a> &nbsp;·&nbsp; <a href="index.html">View Privacy Policy →</a></p>
+    </section>
+
+    <div class="note-card outer">
+      <div class="shield">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z" stroke="#6c4cf5" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <strong>Important</strong>
+        <p>This DEI &amp; Sustainability Policy (Annexure B) forms part of the Huzzler Terms of Service. Please read it carefully before using the Platform.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="actionbar">
+  <p>By using Huzzler, you agree to uphold this DEI &amp; Sustainability Policy.</p>
+  <div class="btns">
+    <a href="#" class="btn ghost">⬇ Download PDF</a>
+    <a href="#" class="btn primary">I Agree →</a>
+  </div>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.toc a');
+  const sections = document.querySelectorAll('.tos-section');
+
+  links.forEach(link=>{
+    link.addEventListener('click', e=>{
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  const setActive = ()=>{
+    let current = sections[0];
+    sections.forEach(sec=>{
+      if(sec.getBoundingClientRect().top - 80 <= 0) current = sec;
+    });
+    links.forEach(l=>l.classList.remove('active'));
+    const activeLink = document.querySelector('.toc a[href="#'+current.id+'"]');
+    if(activeLink) activeLink.classList.add('active');
+  };
+  window.addEventListener('scroll', setActive);
+  setActive();
+</script>
+
+</body>
+</html>
